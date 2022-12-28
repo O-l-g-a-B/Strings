@@ -3,23 +3,21 @@ import java.util.Scanner;
 
 public class Main {
 
+    private static char action;
+    private static String[] data;
+
     public static void main(String[] args) throws Exception {
         Scanner scn = new Scanner(System.in);
         String exp = scn.nextLine();
-        char action;
-        String[] data;
+
         if (exp.contains(" + ")) {
-            data = exp.split(" \\+ ");
-            action = '+';
+            additionStrings(exp);
         } else if (exp.contains(" - ")) {
-            data = exp.split(" - ");
-            action = '-';
+            subtractionStrings(exp);
         } else if (exp.contains(" * ")) {
-            data = exp.split(" \\* ");
-            action = '*';
+            multiplicationStrings(exp);
         } else if (exp.contains(" / ")) {
-            data = exp.split(" / ");
-            action = '/';
+            divisionStrings(exp);
         } else {
             throw new Exception("Некорректный знак действия");
         }
@@ -55,10 +53,24 @@ public class Main {
             String result = data[0].substring(0,newLen);
             printInQuotes(result);
         }
-
-
     }
     static void printInQuotes(String text){
         System.out.println("\""+text+"\"");
+    }
+    static void additionStrings(String text) {
+        data = text.split(" \\+ ");
+        action = '+';
+    }
+    static void subtractionStrings(String text) {
+        data = text.split(" - ");
+        action = '-';
+    }
+    static void multiplicationStrings(String text) {
+        data = text.split(" \\* ");
+        action = '*';
+    }
+    static void divisionStrings(String text) {
+        data = text.split(" / ");
+        action = '/';
     }
 }
