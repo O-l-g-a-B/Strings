@@ -79,16 +79,40 @@ public class Main {
                 throw new Exception("Первое значение должно содержать строку!");
             }
     }
-    static void subtractionStrings(String text) {
+    static void subtractionStrings(String text) throws Exception {
         data = text.split(" - ");
+        if (data[0].contains("\"")) {
+            if ((data[0].length() <= 10) && (data[1].length() <= 10)) {
         action = '-';
+    } else {
+                throw new Exception("В строках указывается не более 10-ти знаков!");
+            }
+        } else {
+                throw new Exception("Первое значение должно содержать строку!");
+            }
     }
-    static void multiplicationStrings(String text) {
+    static void multiplicationStrings(String text) throws Exception {
         data = text.split(" \\* ");
+        if (data[0].contains("\"")) {
+            if ((data[0].length() <= 10) && (data[1].length() <= 10)) {
         action = '*';
+    } else {
+                throw new Exception("В строках указывается не более 10-ти знаков!");
+            }
+        } else {
+                throw new Exception("Первое значение должно содержать строку!");
+            }
     }
-    static void divisionStrings(String text) {
+    static void divisionStrings(String text) throws Exception {
         data = text.split(" / ");
+        if (data[0].contains("\"")) {
+            if ((data[0].length() <= 10) && (data[1].length() <= 10)) {
         action = '/';
+    } else {
+                throw new Exception("В строках указывается не более 10-ти знаков!");
+            }
+        } else {
+                throw new Exception("Первое значение должно содержать строку!");
+            }
     }
 }
